@@ -9,22 +9,20 @@
 ## if overriding the traces pipeline.
 ##
   exporters:
-    otlpgrpc/hyperdx:
-      otlp:
-        endpoint: hyperdx-local:4217
-        tls:
-          insecure: true
-    otlphttp/hyperdx:
-      otlp:
-        endpoint: http://hyperdx-local:4218
-        tls:
-          insecure: true
+    otlp:
+      endpoint: hyperdx-local:4217
+      tls:
+        insecure: true
+    otlphttp:
+      endpoint: http://hyperdx-local:4218
+      tls:
+        insecure: true
 
   service:
     pipelines:
       traces:
-        exporters: [spanmetrics, otlpgrpc/hyperdx]
+        exporters: [spanmetrics, otlp]
       metrics:
-        exporters: [otlphttp/hyperdx]
+        exporters: [otlphttp]
       logs:
-        exporters: [otlphttp/hyperdx]
+        exporters: [otlphttp]
