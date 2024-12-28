@@ -11,12 +11,12 @@
   exporters:
     otlpgrpc/hyperdx:
       otlp:
-        endpoint: localhost:4317
+        endpoint: localhost:4217
         tls:
           insecure: true
     otlphttp/hyperdx:
       otlp:
-        endpoint: http://localhost:4318
+        endpoint: http://localhost:4218
         tls:
           insecure: true
 
