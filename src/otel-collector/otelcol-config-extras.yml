@@ -28,7 +28,7 @@ service:
   pipelines:
     traces:
       processors: [batch]
-      exporters: [otlphttp/hdx]
+      exporters: [spanmetrics, otlphttp/hdx]
     metrics:
       processors: [batch]
       exporters: [otlphttp/hdx]
