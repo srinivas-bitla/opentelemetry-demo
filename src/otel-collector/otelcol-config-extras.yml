@@ -15,12 +15,16 @@ exporters:
   # HTTP setup
   otlphttp/hdx:
     endpoint: 'http://18.61.77.172:4318'
+    headers:
+      authorization: some-test-key-for-local
     tls:
       insecure: true
  
   # gRPC setup (alternative)
   otlp/hdx:
     endpoint: '18.61.77.172:4317'
+    headers:
+      authorization: some-test-key-for-local
     tls:
       insecure: true
  
