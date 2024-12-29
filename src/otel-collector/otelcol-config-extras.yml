@@ -21,17 +21,11 @@ exporters:
     tls:
       insecure: true
  
-processors:
-  batch:
- 
 service:
   pipelines:
     traces:
-      processors: [batch]
       exporters: [spanmetrics, otlphttp/hdx]
     metrics:
-      processors: [batch]
       exporters: [otlphttp/hdx]
     logs:
-      processors: [batch]
       exporters: [otlphttp/hdx]
