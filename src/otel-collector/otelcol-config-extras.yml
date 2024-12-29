@@ -10,11 +10,11 @@
 ##
   exporters:
     otlp:
-      endpoint: hyperdx-local:4217
+      endpoint: 18.61.77.172:4217
       tls:
         insecure: true
     otlphttp:
-      endpoint: http://hyperdx-local:4218
+      endpoint: http://18.61.77.172:4218
       tls:
         insecure: true
 
