@@ -27,14 +27,11 @@ processors:
 service:
   pipelines:
     traces:
-      receivers: [otlp]
       processors: [batch]
       exporters: [otlphttp/hdx]
     metrics:
-      receivers: [otlp]
       processors: [batch]
       exporters: [otlphttp/hdx]
     logs:
-      receivers: [otlp]
       processors: [batch]
       exporters: [otlphttp/hdx]
