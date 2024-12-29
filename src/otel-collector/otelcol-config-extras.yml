@@ -8,9 +8,6 @@
 ## Note: the spanmetrics exporter must be included in the exporters array
 ## if overriding the traces pipeline.
 ##
-receivers:
-  otlp:
- 
 exporters:
   # HTTP setup
   otlphttp/hdx:
