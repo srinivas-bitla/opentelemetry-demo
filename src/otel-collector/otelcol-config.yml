@@ -91,7 +91,7 @@ receivers:
 exporters:
   debug:
   otlphttp/hdx:
-    endpoint: 'http://ec2-18-60-50-188.ap-south-2.compute.amazonaws.com:4318'
+    endpoint: 'http://ec2-98-130-11-92.ap-south-2.compute.amazonaws.com:4318'
     tls:
       insecure: true
 
@@ -110,16 +110,19 @@ connectors:
   spanmetrics:
 
 service:
+  telemetry:
+    logs:
+      level: debug
   pipelines:
     traces:
       receivers: [otlp]
       processors: [transform, batch]
-      exporters: [otlphttp/hdx, debug, spanmetrics]
+      exporters: [otlphttp/hdx, spanmetrics]
     metrics:
       receivers: [hostmetrics, docker_stats, httpcheck/frontendproxy, otlp, prometheus, redis, spanmetrics]
       processors: [batch]
-      exporters: [otlphttp/hdx, debug]
+      exporters: [otlphttp/hdx]
     logs:
       receivers: [otlp]
       processors: [batch]
-      exporters: [otlphttp/hdx, debug]
+      exporters: [otlphttp/hdx]
