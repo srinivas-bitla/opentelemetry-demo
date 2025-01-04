@@ -13,7 +13,16 @@ exporters:
       insecure: true
 
 service:
+  telemetry:
+    logs:
+      level: debug
   pipelines:
     traces:
+      receivers: [otlp]
+      exporters: [otlphttp/hdx]
+    metrics:
+      receivers: [otlp]
+      exporters: [otlphttp/hdx]
+    logs:
       receivers: [otlp]
       exporters: [otlphttp/hdx]
