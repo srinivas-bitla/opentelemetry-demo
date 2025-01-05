@@ -11,6 +11,8 @@ exporters:
     endpoint: 'http://ec2-18-61-57-25.ap-south-2.compute.amazonaws.com:4318'
     tls:
       insecure: true
+  file:
+    path: /var/log/otel-collector/logs.log
 
 service:
   telemetry:
@@ -19,10 +21,10 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      exporters: [otlphttp/hdx]
+      exporters: [otlphttp/hdx, file]
     metrics:
       receivers: [otlp]
-      exporters: [otlphttp/hdx]
+      exporters: [otlphttp/hdx, file]
     logs:
       receivers: [otlp]
-      exporters: [otlphttp/hdx]
+      exporters: [otlphttp/hdx, file]
